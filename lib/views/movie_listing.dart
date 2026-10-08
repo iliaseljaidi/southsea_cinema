@@ -12,6 +12,12 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
+  String _bookingMessage = '';
+  void _addToOrder() {
+    setState(() {
+      _bookingMessage = 'Added $_ticketQuantity ticket(s) to your order';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +47,10 @@ class _MovieListingState extends State<MovieListing> {
             Text(
               'A 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins.',
             ),
-            const SizedBox (height: 16),
+            const SizedBox(height: 16),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
-              onSelected: (int? value){
+              onSelected: (int? value) {
                 if (value != null) {
                   setState(() {
                     _ticketQuantity = value;
@@ -59,8 +65,15 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 5, label: '5'),
               ],
             ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _addToOrder,
+              child: const Text('Add to order'),
+            ),
+            const SizedBox(height: 8),
+            Text(_bookingMessage),
           ],
-      ),
+        ),
       ),
     );
   }
