@@ -25,7 +25,7 @@ class _MovieListingState extends State<MovieListing> {
       drawer: const NavDrawer(),
       body: Container(
         padding: const EdgeInsets.all(16),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Se7en'),
@@ -41,8 +41,26 @@ class _MovieListingState extends State<MovieListing> {
             Text(
               'A 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins.',
             ),
+            const SizedBox (height: 16),
+            DropdownMenu<int>(
+              initialSelection: _ticketQuantity,
+              onSelected: (int? value){
+                if (value != null) {
+                  setState(() {
+                    _ticketQuantity = value;
+                  });
+                }
+              },
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(value: 1, label: '1'),
+                DropdownMenuEntry(value: 2, label: '2'),
+                DropdownMenuEntry(value: 3, label: '3'),
+                DropdownMenuEntry(value: 4, label: '4'),
+                DropdownMenuEntry(value: 5, label: '5'),
+              ],
+            ),
           ],
-        ),
+      ),
       ),
     );
   }
