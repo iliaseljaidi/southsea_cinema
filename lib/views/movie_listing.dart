@@ -21,6 +21,13 @@ class MovieListing extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text('Se7en'),
+      SizedBox(height: 8),
+      Row(children: [
+        Text('Runtime: 2h 7m'),
+        SizedBox(width: 16),
+        Text('Rating: = +18'),
+      ],
+      ),
       Text(
         'A 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins.',
       ),
