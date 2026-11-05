@@ -57,6 +57,11 @@ class _MovieListingState extends State<MovieListing> {
               widget.movie.screeningTime,
               style: const TextStyle(color: cinemaFontWhite),
             ),
+            const SizedBox(height: 8),
+            Text(
+              widget.movie.formattedPrice,
+              style: const TextStyle(color: cinemaFontWhite),
+            ),
             SizedBox(height: 8),
             Text(widget.movie.synopsis),
             const SizedBox(height: 16),
