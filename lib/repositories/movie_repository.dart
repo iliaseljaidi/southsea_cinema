@@ -7,7 +7,7 @@ class MovieRepository {
         id: 'seven',
         title: 'Se7en',
         synopsis:
-            ' 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins',
+            'A 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins',
         ageRating: '18',
         screeningTime: 'Friday 8:00 PM',
         price: 9.50,
