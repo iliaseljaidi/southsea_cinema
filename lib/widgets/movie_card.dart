@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
 
 class MovieCard extends StatelessWidget {
@@ -9,6 +10,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: cinemaSurface,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -32,19 +34,26 @@ class MovieCard extends StatelessWidget {
                       Text(
                         movie.title,
                         style: const TextStyle(
+                          color: cinemaFontWhite,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 4),
-                      Text('Rated ${movie.ageRating}'),
+                      Text(
+                        'Rated ${movie.ageRating}',
+                        style: const TextStyle(color: cinemaBrand),
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         movie.synopsis,
-                        style: const TextStyle(color: Colors.black54),
+                        style: const TextStyle(color: cinemaFontWhite),
                       ),
                       const SizedBox(height: 8),
-                      Text(movie.screeningTime),
+                      Text(
+                        movie.screeningTime,
+                        style: const TextStyle(color: cinemaFontWhite),
+                      ),
                     ],
                   ),
                 ),
@@ -55,6 +64,8 @@ class MovieCard extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: cinemaBrand,
+                  foregroundColor: cinemaFontWhite,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
