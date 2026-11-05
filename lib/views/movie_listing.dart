@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({super.key, required this.movie});
   @override
   State<MovieListing> createState() {
     return _MovieListingState();
@@ -34,19 +37,28 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Se7en'),
+            Text(widget.movie.title),
             SizedBox(height: 8),
             Row(
               children: [
-                Text('Runtime: 2h 7m'),
-                SizedBox(width: 16),
-                Text('Rating: = +18'),
+                Text(
+                  'Runtime: ${widget.movie.runtime}',
+                  style: const TextStyle(color: cinemaFontWhite),
+                ),
+                const SizedBox(width: 16),
+                Text(
+                  'Rating: ${widget.movie.ageRating}',
+                  style: const TextStyle(color: cinemaFontWhite),
+                ),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              'A 1995 dark psychological thriller directed by David Fincher that follows two detectives hunting a meticulous serial killer who bases his gruesome murders on the seven deadly sins.',
+              widget.movie.screeningTime,
+              style: const TextStyle(color: cinemaFontWhite),
             ),
+            SizedBox(height: 8),
+            Text(widget.movie.synopsis),
             const SizedBox(height: 16),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
