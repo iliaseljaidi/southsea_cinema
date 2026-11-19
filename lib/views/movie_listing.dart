@@ -7,6 +7,7 @@ class MovieListing extends StatefulWidget {
   final Movie movie;
 
   const MovieListing({super.key, required this.movie});
+
   @override
   State<MovieListing> createState() {
     return _MovieListingState();
@@ -16,6 +17,7 @@ class MovieListing extends StatefulWidget {
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
   String _bookingMessage = '';
+
   void _addToOrder() {
     setState(() {
       _bookingMessage = 'Added $_ticketQuantity ticket(s) to your order';
@@ -26,10 +28,7 @@ class _MovieListingState extends State<MovieListing> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appTitle, style: cinemaHeaderStyle),
-        backgroundColor: cinemaSurface,
-        iconTheme: const IconThemeData(color: cinemaBrand),
-        elevation: 0,
+        title: const Text(appTitle),
       ),
       drawer: const NavDrawer(),
       body: Container(
@@ -38,7 +37,7 @@ class _MovieListingState extends State<MovieListing> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(widget.movie.title),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Text(
@@ -58,11 +57,6 @@ class _MovieListingState extends State<MovieListing> {
               style: const TextStyle(color: cinemaFontWhite),
             ),
             const SizedBox(height: 8),
-            Text(
-              widget.movie.formattedPrice,
-              style: const TextStyle(color: cinemaFontWhite),
-            ),
-            SizedBox(height: 8),
             Text(widget.movie.synopsis),
             const SizedBox(height: 16),
             DropdownMenu<int>(
