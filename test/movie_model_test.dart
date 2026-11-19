@@ -54,7 +54,7 @@ void main() {
 
       expect(movie.formattedPrice, '£10.00');
     });
-        test('fromJson builds a Movie and toJson returns the same map', () {
+    test('fromJson builds a Movie and toJson returns the same map', () {
       final Map<String, dynamic> json = <String, dynamic>{
         'id': 'seven',
         'title': 'Se7en',

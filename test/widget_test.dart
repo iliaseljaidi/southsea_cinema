@@ -5,7 +5,7 @@ import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-    setUp(() {
+  setUp(() {
     rootBundle.clear();
   });
   group('App smoke tests', () {
