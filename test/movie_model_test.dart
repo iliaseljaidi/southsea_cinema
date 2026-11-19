@@ -54,5 +54,47 @@ void main() {
 
       expect(movie.formattedPrice, '£10.00');
     });
+        test('fromJson builds a Movie and toJson returns the same map', () {
+      final Map<String, dynamic> json = <String, dynamic>{
+        'id': 'seven',
+        'title': 'Se7en',
+        'synopsis': 'A dark thriller.',
+        'ageRating': '18',
+        'runtime': '2h 7m',
+        'screeningTime': 'Friday 8:00 PM',
+        'price': 9.5,
+        'posterImagePath': 'images/seven.jpeg',
+      };
+
+      final Movie movie = Movie.fromJson(json);
+
+      expect(movie.id, 'seven');
+      expect(movie.title, 'Se7en');
+      expect(movie.synopsis, 'A dark thriller.');
+      expect(movie.ageRating, '18');
+      expect(movie.runtime, '2h 7m');
+      expect(movie.screeningTime, 'Friday 8:00 PM');
+      expect(movie.price, 9.5);
+      expect(movie.posterImagePath, 'images/seven.jpeg');
+      expect(movie.toJson(), json);
+    });
+
+    test('fromJson converts a whole-number price to a double', () {
+      final Map<String, dynamic> json = <String, dynamic>{
+        'id': 'inception',
+        'title': 'Inception',
+        'synopsis': 'A dream thriller.',
+        'ageRating': '12A',
+        'runtime': '2h 28m',
+        'screeningTime': 'Saturday 6:30 PM',
+        'price': 10,
+        'posterImagePath': 'images/inception.jpeg',
+      };
+
+      final Movie movie = Movie.fromJson(json);
+
+      expect(movie.price, 10.0);
+      expect(movie.price, isA<double>());
+    });
   });
 }
