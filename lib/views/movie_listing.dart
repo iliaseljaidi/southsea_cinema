@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/widgets/cinema_button.dart';
 
 class MovieListing extends StatefulWidget {
   final Movie movie;
@@ -77,9 +78,9 @@ class _MovieListingState extends State<MovieListing> {
               ],
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            CinemaButton(
+              label: 'Add to order',
               onPressed: _addToOrder,
-              child: const Text('Add to order'),
             ),
             const SizedBox(height: 8),
             Text(_bookingMessage),
