@@ -41,11 +41,19 @@ class _MovieListingState extends State<MovieListing> {
         title: const Text(appTitle),
       ),
       drawer: const NavDrawer(),
-      body: Container(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: Image.asset(
+                widget.movie.posterImagePath,
+                height: 250,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 16),
             Text(widget.movie.title),
             const SizedBox(height: 8),
             Row(
